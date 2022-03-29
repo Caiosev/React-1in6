@@ -1,6 +1,9 @@
 import * as C from './App.styles'
 import {useState} from 'react'
 import {Item} from '../../types/item'
+import { ListItem } from '../../components/ListItem'
+
+
 export const App = () =>{
 
   const [list, setList] = useState<Item[]>([
@@ -20,7 +23,7 @@ export const App = () =>{
         {/* Add tarefa*/}
 
         {list.map((item,index) =>(
-         item.name
+         <ListItem key={index} item={item}/>
          ))}
 
       </C.Area>
