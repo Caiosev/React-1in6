@@ -11,7 +11,7 @@ export const App = () =>{
       id: 1,name:'a',done:false
     },
     {
-      id: 2,name:'n',done:false
+      id: 2,name:'n',done:true
     }
   ])
 
