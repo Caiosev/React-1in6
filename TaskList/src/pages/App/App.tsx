@@ -1,5 +1,5 @@
 import * as C from './App.styles'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Item} from '../../types/item'
 import { ListItem } from '../../components/ListItem'
 import {AddArea} from '../../components/addArea'
@@ -32,17 +32,35 @@ export const App = () =>{
     setList(newList)
   }
 
+  let Time= new Date().toLocaleDateString()
+  const [stateTime,setStateTime] = useState(Time);
+
+  const UpdateTime = () =>{
+    let time = new Date().toLocaleTimeString()
+    setStateTime(time);
+  }
+
+  setInterval(UpdateTime,1000)
   return(
     <C.Container>
-      <C.Area>
-        <C.Header>Lista de tarefas</C.Header>
-        <AddArea onEnter={handleAddTask}/>
+        <C.Header>
+            <h1>{stateTime}</h1>
+            <C.AddArea>
+             <AddArea onEnter={handleAddTask} />
+            </C.AddArea>
+        </C.Header>
 
-        {list.map((item,index) =>(
-         <ListItem key={index} item={item} onChange={handleCheck}/>
-         ))}
+        <C.Area>
+         
+            {list.map((item,index) =>(
+            <ListItem key={index} item={item} onChange={handleCheck}/>
+            ))}
+       
+        </C.Area>
 
-      </C.Area>
+        <C.Foooter>
+            <em><h2>DailyTasks</h2></em>
+        </C.Foooter>
     </C.Container>
   )
   
