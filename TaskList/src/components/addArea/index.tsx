@@ -32,5 +32,6 @@ export const AddArea = ({onEnter}:Props) =>{
             onChange = {e=>setInputText(e.target.value)}
             onKeyUp={handleKeyUp}/>
         </C.Container>
+        
     )
 }

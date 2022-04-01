@@ -47,6 +47,7 @@ export const App = () =>{
             <h1>{stateTime}</h1>
             <C.AddArea>
              <AddArea onEnter={handleAddTask} />
+             
             </C.AddArea>
         </C.Header>
 
