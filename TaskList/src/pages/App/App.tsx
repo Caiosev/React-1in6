@@ -1,5 +1,5 @@
 import * as C from './App.styles'
-import {useState} from 'react'
+import {useEffect, useState} from 'react'
 import {Item} from '../../types/item'
 import { ListItem } from '../../components/ListItem'
 import {AddArea} from '../../components/addArea'
@@ -32,10 +32,19 @@ export const App = () =>{
     setList(newList)
   }
 
+  let Time= new Date().toLocaleDateString()
+  const [stateTime,setStateTime] = useState(Time);
+
+  const UpdateTime = () =>{
+    let time = new Date().toLocaleTimeString()
+    setStateTime(time);
+  }
+
+  setInterval(UpdateTime,1000)
   return(
     <C.Container>
         <C.Header>
-            <h1>Relogio</h1>
+            <h1>{stateTime}</h1>
             <C.AddArea>
              <AddArea onEnter={handleAddTask} />
             </C.AddArea>

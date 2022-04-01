@@ -28,7 +28,7 @@ export const Header = styled.div`
     height: 10vh;
     padding: 20px;
     h1{
-        font-size: 2rem;
+        font-size: 3rem;
         text-align: center;
     }
     
