@@ -34,15 +34,24 @@ export const App = () =>{
 
   return(
     <C.Container>
-      <C.Area>
-        <C.Header>Lista de tarefas</C.Header>
-        <AddArea onEnter={handleAddTask}/>
+        <C.Header>
+            <h1>Relogio</h1>
+            <C.AddArea>
+             <AddArea onEnter={handleAddTask} />
+            </C.AddArea>
+        </C.Header>
 
-        {list.map((item,index) =>(
-         <ListItem key={index} item={item} onChange={handleCheck}/>
-         ))}
+        <C.Area>
+         
+            {list.map((item,index) =>(
+            <ListItem key={index} item={item} onChange={handleCheck}/>
+            ))}
+       
+        </C.Area>
 
-      </C.Area>
+        <C.Foooter>
+            <em><h2>DailyTasks</h2></em>
+        </C.Foooter>
     </C.Container>
   )
   
