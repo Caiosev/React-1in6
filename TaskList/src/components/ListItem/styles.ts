@@ -3,10 +3,11 @@ import styled from 'styled-components'
 
 type ContainerProps = {
     done:boolean;
+    time:string;
+    realtime:string;
 }
 
-export const Container = styled.div(({done}: ContainerProps) =>(
-    `
+export const Container = styled.div(({done,time,realtime}: ContainerProps) =>(`
 
         display: flex;
         background-color:  #20212C;
@@ -14,10 +15,11 @@ export const Container = styled.div(({done}: ContainerProps) =>(
         border-radius: 10px;
         margin-bottom: 10px;
         align-items: center;
+        background-color: ${parseInt(time)<parseInt(realtime)&&'red'};
 
         label{
-            color: #ccc;
-            text-decoration: ${done?'line-through':'initial'}
+           color: #ccc;
+           text-decoration: ${done?'line-through':'initial'}
 
         }
 

@@ -17,7 +17,7 @@ export const Area = styled.div`
 
     div{
         width: 320px;
-        margin-top: 10px;
+        margin-top: 20px;
         height: 50px;
     }
         
@@ -35,7 +35,7 @@ export const Header = styled.div`
 `
 
 export const AddArea = styled.div `
-    
+    width: 250px;
 
 `
 
