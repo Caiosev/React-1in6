@@ -7,22 +7,24 @@ import {AddArea} from '../../components/addArea'
 export const App = () =>{
 
   const [list, setList] = useState<Item[]>([
-    { id: 1, name: 'Comprar o pão na padaria', done: false },
-    { id: 2, name: 'Comprar um bolo na padaria', done: true },
+    { id: 1, time:'10:00', name: 'Comprar o pão na padaria', done: false },
+    { id: 2, time:'20:00', name: 'Comprar um bolo na padaria', done: true },
   ])
   
-  const handleAddTask = (taskname:string) =>{
+  const handleAddTask = (taskname:string,tasktime:string) =>{
     let newList = [...list];  
     newList.push({
       id:list.length + 1,
+      time:tasktime,
       name:taskname,
       done:false
 
     });
     setList(newList)
+    console.log(newList)
   }
 
-    const handleCheck = (id:number, done:boolean) =>{
+    const handleCheck = (id:number, done:boolean, ) =>{
       let newList =[...list]
       for(let i in newList) {
         if(newList[i].id == id) {
@@ -47,14 +49,13 @@ export const App = () =>{
             <h1>{stateTime}</h1>
             <C.AddArea>
              <AddArea onEnter={handleAddTask} />
-             
             </C.AddArea>
         </C.Header>
 
         <C.Area>
          
             {list.map((item,index) =>(
-            <ListItem key={index} item={item} onChange={handleCheck}/>
+            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime}/>
             ))}
        
         </C.Area>

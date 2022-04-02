@@ -35,7 +35,7 @@ export const Header = styled.div`
 `
 
 export const AddArea = styled.div `
-    
+    width: 250px;
 
 `
 
