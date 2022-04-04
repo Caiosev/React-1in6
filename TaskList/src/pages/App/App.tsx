@@ -24,7 +24,7 @@ export const App = () =>{
     console.log(newList)
   }
 
-    const handleCheck = (id:number, done:boolean, ) =>{
+    const handleCheck = (id:number, done:boolean ) =>{
       let newList =[...list]
       for(let i in newList) {
         if(newList[i].id == id) {
@@ -32,6 +32,7 @@ export const App = () =>{
         }
     } 
     setList(newList)
+    console.log(list)
   }
 
   let Time= new Date().toLocaleDateString()
@@ -43,8 +44,11 @@ export const App = () =>{
   }
   setInterval(UpdateTime,1000)
 
-    console.log(list)
-  return(
+
+
+
+ 
+    return(
     <C.Container>
         <C.Header>
             <h1>{stateTime}</h1>
@@ -56,7 +60,7 @@ export const App = () =>{
         <C.Area>
             
             {list.map((item,index) =>(
-            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime}/>
+            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} />
             ))}
        
         </C.Area>
