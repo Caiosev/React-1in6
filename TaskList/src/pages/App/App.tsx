@@ -7,8 +7,8 @@ import {AddArea} from '../../components/addArea'
 export const App = () =>{
 
   const [list, setList] = useState<Item[]>([
-    { id: 1, time:'10:00', name: 'Comprar o pão na padaria', done: false },
-    { id: 2, time:'20:00', name: 'Comprar um bolo na padaria', done: true },
+    { id: 0, time:'10:00', name: 'Comprar o pão na padaria', done: false },
+    { id: 1, time:'20:00', name: 'Comprar um bolo na padaria', done: true },
   ])
   
   const handleAddTask = (taskname:string,tasktime:string) =>{
@@ -41,8 +41,9 @@ export const App = () =>{
     let time = new Date().toLocaleTimeString()
     setStateTime(time);
   }
-
   setInterval(UpdateTime,1000)
+
+    console.log(list)
   return(
     <C.Container>
         <C.Header>
@@ -53,7 +54,7 @@ export const App = () =>{
         </C.Header>
 
         <C.Area>
-         
+            
             {list.map((item,index) =>(
             <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime}/>
             ))}

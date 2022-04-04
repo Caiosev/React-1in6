@@ -15,7 +15,7 @@ export const Container = styled.div(({done,time,realtime}: ContainerProps) =>(`
         border-radius: 10px;
         margin-bottom: 10px;
         align-items: center;
-        background-color: ${parseInt(time)<parseInt(realtime)&&'red'};
+        background-color: ${parseInt(time)<parseInt(realtime)&&'red'||parseInt(time)===parseInt(realtime)&&'yellow'};
 
         label{
            color: #ccc;
