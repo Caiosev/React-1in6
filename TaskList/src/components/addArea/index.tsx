@@ -25,7 +25,7 @@ export const AddArea = ({onEnter}:Props) =>{
         setInputTime('');
     }
     return(
-        <div>
+        <div className='add-inputs'>
             <C.Container>
                 <div className='image' 
                 onClick={handleClick}>➕</div>
@@ -38,8 +38,7 @@ export const AddArea = ({onEnter}:Props) =>{
                 onKeyUp={handleKeyUp}/>
             </C.Container>
             <C.Container>
-                <div className='image' 
-                onClick={handleClick}>➕</div>
+               
                 <input type="time" 
                 placeholder='Adicione a Hora' 
                 value={inputTime}

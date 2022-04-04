@@ -7,8 +7,8 @@ import {AddArea} from '../../components/addArea'
 export const App = () =>{
 
   const [list, setList] = useState<Item[]>([
-    { id: 1, time:'10:00', name: 'Comprar o pão na padaria', done: false },
-    { id: 2, time:'20:00', name: 'Comprar um bolo na padaria', done: true },
+    { id: 0, time:'10:00', name: 'Comprar o pão na padaria', done: false },
+    { id: 1, time:'20:00', name: 'Dominar a Russia', done: true },
   ])
   
   const handleAddTask = (taskname:string,tasktime:string) =>{
@@ -24,7 +24,7 @@ export const App = () =>{
     console.log(newList)
   }
 
-    const handleCheck = (id:number, done:boolean, ) =>{
+    const handleCheck = (id:number, done:boolean ) =>{
       let newList =[...list]
       for(let i in newList) {
         if(newList[i].id == id) {
@@ -32,6 +32,7 @@ export const App = () =>{
         }
     } 
     setList(newList)
+    console.log(list)
   }
 
   let Time= new Date().toLocaleDateString()
@@ -41,9 +42,13 @@ export const App = () =>{
     let time = new Date().toLocaleTimeString()
     setStateTime(time);
   }
-
   setInterval(UpdateTime,1000)
-  return(
+
+
+
+
+ 
+    return(
     <C.Container>
         <C.Header>
             <h1>{stateTime}</h1>
@@ -53,9 +58,9 @@ export const App = () =>{
         </C.Header>
 
         <C.Area>
-         
+            
             {list.map((item,index) =>(
-            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime}/>
+            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} />
             ))}
        
         </C.Area>

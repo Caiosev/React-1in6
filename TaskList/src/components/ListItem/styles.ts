@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components'
 
 
@@ -5,9 +6,13 @@ type ContainerProps = {
     done:boolean;
     time:string;
     realtime:string;
+    bg:string;
+
 }
 
-export const Container = styled.div(({done,time,realtime}: ContainerProps) =>(`
+
+
+export const Container = styled.div(({done,time,realtime,bg}: ContainerProps) =>(`
 
         display: flex;
         background-color:  #20212C;
@@ -15,7 +20,8 @@ export const Container = styled.div(({done,time,realtime}: ContainerProps) =>(`
         border-radius: 10px;
         margin-bottom: 10px;
         align-items: center;
-        background-color: ${parseInt(time)<parseInt(realtime)&&'red'};
+        background-color:${bg};
+
 
         label{
            color: #ccc;
