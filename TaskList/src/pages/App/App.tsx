@@ -8,7 +8,7 @@ export const App = () =>{
 
   const [list, setList] = useState<Item[]>([
     { id: 0, time:'10:00', name: 'Comprar o pão na padaria', done: false },
-    { id: 1, time:'20:00', name: 'Comprar um bolo na padaria', done: true },
+    { id: 1, time:'20:00', name: 'Dominar a Russia', done: true },
   ])
   
   const handleAddTask = (taskname:string,tasktime:string) =>{

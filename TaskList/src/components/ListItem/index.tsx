@@ -27,7 +27,7 @@ export const ListItem = ({item, onChange, realtime}: Props) =>{
             setBg('#20212C')
         }
       }
-      setInterval(handlebg,500)
+      setInterval(handlebg,2000)
     
     
     return(

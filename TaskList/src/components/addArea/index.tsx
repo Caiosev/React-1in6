@@ -25,7 +25,7 @@ export const AddArea = ({onEnter}:Props) =>{
         setInputTime('');
     }
     return(
-        <div>
+        <div className='add-inputs'>
             <C.Container>
                 <div className='image' 
                 onClick={handleClick}>➕</div>
