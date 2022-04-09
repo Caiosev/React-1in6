@@ -45,7 +45,18 @@ export const App = () =>{
   setInterval(UpdateTime,1000)
 
 
-
+  const handleDelete = (id:number) =>{
+    let newList = [...list]
+    
+    for(let i in newList){
+      if(newList[i].id == id){
+        console.log(newList)
+        newList.splice(parseInt(i),1)
+        console.log(newList)
+        setList(newList)
+      }
+    }
+  }
 
  
     return(
@@ -57,10 +68,9 @@ export const App = () =>{
             </C.AddArea>
         </C.Header>
 
-        <C.Area>
-            
+        <C.Area >
             {list.map((item,index) =>(
-            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} />
+            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} handleDelete={handleDelete} />
             ))}
        
         </C.Area>

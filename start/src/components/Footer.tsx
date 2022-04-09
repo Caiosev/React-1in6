@@ -9,10 +9,10 @@ export function Footer({age}:Props){
     return(
         <footer>
             {age == 20&&
-                <h2>Pezin {age} hein</h2>
+                <h2>Novinho {age} hein</h2>
             }
              {age == 90&&
-                <h2>PezAOFMNS {age} hein</h2>
+                <h2>Velhao tu {age} hein</h2>
             }
             
         </footer>
