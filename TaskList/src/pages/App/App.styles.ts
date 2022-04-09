@@ -36,7 +36,7 @@ export const Area = styled.section`
 
     div{
         width: 90vw;
-        margin-top: 20px;
+       
         height: 50px;
 
         @media screen and (min-width:62rem) {

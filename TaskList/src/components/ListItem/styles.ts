@@ -32,8 +32,19 @@ export const Container = styled.div(({done,time,realtime,bg}: ContainerProps) =>
         input{
             width: 25px;
             height: 25px;
-            margin-right: 5px;
+           
         
+        }
+        .name-check{
+                width:90%;
+                display:flex;
+                align-items: center;
+        }
+        .image{
+            width:10%;
+            display:flex;
+            align-items: center;
+            
         }
     `
 

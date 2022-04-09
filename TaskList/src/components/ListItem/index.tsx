@@ -7,12 +7,13 @@ type Props = {
     item : Item
     onChange: (id: number, done: boolean) => void
     realtime:string
+    handleDelete:(id:number)=>void
    
 }
 
 
 
-export const ListItem = ({item, onChange, realtime}: Props) =>{
+export const ListItem = ({item, onChange, realtime,handleDelete}: Props) =>{
 
 
     const [bg, setBg] = useState('')
@@ -28,18 +29,20 @@ export const ListItem = ({item, onChange, realtime}: Props) =>{
         }
       }
       setInterval(handlebg,2000)
-    
+
     
     return(
-        <C.Container done={item.done} time={item.time} realtime={realtime} bg={bg}>
-            
-        <input 
-        type="checkbox" 
-        checked={item.done}
-        onChange={e => onChange(item.id , e.target.checked)}
-        
-        />     
-        <label>{item.time} - {item.name} </label>   
+        <C.Container done={item.done} time={item.time} realtime={realtime} className='item' bg={bg}>
+        <div className='name-check'>
+            <input 
+                type="checkbox" 
+                checked={item.done}
+                onChange={e => onChange(item.id , e.target.checked)}
+            />   
+                <label>{item.time} - {item.name} </label>  
+        </div>
+           
+        <div className='image' onClick={e => handleDelete(item.id)}>✖️</div>
         
         </C.Container>
     )
