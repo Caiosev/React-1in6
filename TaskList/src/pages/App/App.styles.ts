@@ -1,84 +1,114 @@
 import styled from "styled-components";
 
-export const Container = styled.section `
+export const Main = styled.main `
 
-    background-color: #17181F;
+    background-color: #5C76E4;
     color: #797a81;
     min-height: 100vh;
-    @media screen and (min-width:62rem) {
-        min-height: 100vh;
-        overflow-x: auto;
-        
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 5vw 90vw 5vw;
+    grid-template-rows: 5vh 90vh 5vh;
+
+    h3{
+        color: #5C76E4;
+        margin-bottom: 50px;
+    }
+    
+    .show{
+        display: block;
+        right: 0;
     }
 `
+export const MainContainer = styled.section`
 
+    grid-column: 2/3;
+    grid-row: 2/3;
+    background-color: white;
+    border-radius: 30px;
+    padding: 70px 50px;
+`
 export const Area = styled.section`
-        min-width: 95vw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin-top: 13vh;
-
-        @media screen and (min-width:62rem) {
-            margin-top: 250px;
-            max-height: 50vh;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            padding: 2rem;
-            overflow-y: hidden;
-            
-        }
-        
-        @media screen and (min-width:72rem){
-            max-height: 65vh;
-        }
-
-    div{
-        width: 90vw;
-       
-        height: 50px;
-
-        @media screen and (min-width:62rem) {
-            width: 25vw;
-            margin-right: 10px;
-        }
-    }
+  
+        max-height: 500px;
+        overflow: auto;
+    
         
     
 `
 
 export const Header = styled.header`
-    height: 10vh;
-    padding: 10px;
-    h1{
-        font-size: 3rem;
-        text-align: center;
-    }
-    @media screen and (min-width:62rem) {
-        h1{
-            font-size: 8rem;
-        }
-        position: fixed;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    .date-time{
         display: flex;
+        align-items: flex-start;
         flex-direction: column;
-        width: 100%;
-        align-items: center;
     }
     
+    h1{
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 1rem;
+        margin-left: 3px;
+    }
+    .add-btn{
+        height: 35px;
+        width: 35px;
+        background-color: #5C76E4;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: ease 1s;
+        :active{
+           
+            transform: scale(3);
+        }
+        span{
+            font-size: 1.5rem;
+            color: white;
+            
+        }
+    }
 `
 
 export const AddArea = styled.section `
-    display: flex;
-    justify-content: center;
-
+    position: fixed;
+    right: -100%;
+    background-color: black;
+    height: 100vh;
+    width: 50vw;
+    transition: ease 1s;
     .add-inputs{
-        width: 85vw;
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 25px;
+        font-size: 2.5rem;
+
+            button{
+            border: 1px solid #555;
+            border-radius: 20px;
+            padding: 10px;
+            }
+        .input{
+            width: 40vw;
+        }
     }
+    z-index: 10;
+   
+
 `
 
 export const Foooter = styled.footer`
-    text-align: right;
-    margin-top:20px;
-    padding: 1rem;
+  color: white;
+  margin-top: 10px;
+  justify-self: end;
+  grid-column: 2/4;
+  grid-row: 3/4;
 `

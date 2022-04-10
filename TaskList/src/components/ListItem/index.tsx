@@ -33,17 +33,18 @@ export const ListItem = ({item, onChange, realtime,handleDelete}: Props) =>{
     
     return(
         <C.Container done={item.done} time={item.time} realtime={realtime} className='item' bg={bg}>
-        <div className='name-check'>
-            <input 
-                type="checkbox" 
-                checked={item.done}
-                onChange={e => onChange(item.id , e.target.checked)}
-            />   
-                <label>{item.time} - {item.name} </label>  
+        <div className="item-content">
+            <div className='name-check'>
+                <input 
+                    type="checkbox" 
+                    checked={item.done}
+                    onChange={e => onChange(item.id , e.target.checked)}
+                />   
+                    <label>{item.name} </label>  
+            </div>
+            <label id='time'>{item.time}</label>
+            <div className='image' onClick={e => handleDelete(item.id)}>✖️</div>
         </div>
-           
-        <div className='image' onClick={e => handleDelete(item.id)}>✖️</div>
-        
         </C.Container>
     )
 }
