@@ -54,6 +54,7 @@ export const Header = styled.header`
         font-size: 1rem;
         margin-left: 3px;
     }
+    
     .add-btn{
         height: 35px;
         width: 35px;
@@ -71,15 +72,16 @@ export const Header = styled.header`
         span{
             font-size: 1.5rem;
             color: white;
-            
         }
+        
+       
     }
 `
 
 export const AddArea = styled.section `
     position: fixed;
     right: -100%;
-    background-color: black;
+    background-color: #212A52;
     height: 100vh;
     width: 50vw;
     transition: ease 1s;
@@ -90,7 +92,9 @@ export const AddArea = styled.section `
         align-items: center;
         margin-top: 25px;
         font-size: 2.5rem;
-
+        .close:hover{
+            cursor: pointer;
+        }
             button{
             border: 1px solid #555;
             border-radius: 20px;
