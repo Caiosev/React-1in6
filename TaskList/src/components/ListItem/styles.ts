@@ -7,15 +7,13 @@ type ContainerProps = {
     time:string;
     realtime:string;
     bg:string;
-
 }
 
 
 
-export const Container = styled.div(({done,time,realtime,bg}: ContainerProps) =>(`
+export const Container = styled.div(({done,bg}: ContainerProps) =>`
 
         display: flex;
-        background-color:  #20212C;
         padding: 10px;
         border-radius: 10px;
         margin-bottom: 10px;
@@ -44,9 +42,10 @@ export const Container = styled.div(({done,time,realtime,bg}: ContainerProps) =>
             width:10%;
             display:flex;
             align-items: center;
+            cursor:pointer;
             
         }
     `
 
 
-));
+);
