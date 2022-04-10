@@ -100,15 +100,15 @@ export const App = () =>{
   }
   let toggleClass = showMenu ? ' show' : '';
 
-    list.sort((a,b) =>{
+  list.sort((a,b) =>{
      if(a.time > b.time){
        return 1
      } else{
        return -1
      }
    })
+  
 
-   
     return(
     <C.Main>
        <C.AddArea className={`add-menu${toggleClass}`}>

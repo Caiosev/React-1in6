@@ -41,6 +41,7 @@ export const Container = styled.div(({done,bg}: ContainerProps) =>`
         label{
            color: black;
            opacity:${done?'0.3':'1'};
+           transition: ease 1s;
 
         }
 
