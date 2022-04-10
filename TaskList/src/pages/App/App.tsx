@@ -118,7 +118,7 @@ export const App = () =>{
           </div>
         </C.Header>
         <h3>{contador} Tarefas a serem feitas</h3>
-        <C.Area className='list' >
+        <C.Area className='list'>
             {list.map((item,index) =>(
             <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} handleDelete={handleDelete} />
             ))}

@@ -55,14 +55,19 @@ export const Header = styled.header`
         margin-left: 3px;
     }
     .add-btn{
-        height: 25px;
-        width: 25px;
+        height: 35px;
+        width: 35px;
         background-color: #5C76E4;
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
+        transition: ease 1s;
+        :active{
+           
+            transform: scale(3);
+        }
         span{
             font-size: 1.5rem;
             color: white;
@@ -84,6 +89,7 @@ export const AddArea = styled.section `
         flex-direction: column;
         align-items: center;
         margin-top: 25px;
+        font-size: 2.5rem;
 
             button{
             border: 1px solid #555;
@@ -94,7 +100,7 @@ export const AddArea = styled.section `
             width: 40vw;
         }
     }
-    
+    z-index: 10;
    
 
 `

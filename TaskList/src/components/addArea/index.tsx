@@ -28,7 +28,7 @@ export const AddArea = ({onEnter,handleShow}:Props) =>{
     return(
         <div className='add-inputs'>
             <div onClick={handleShow}>
-            ⓧ
+            <i className='bx bx-x-circle'></i>
             </div>
             <C.Container>
                 <div className="input">
@@ -40,7 +40,6 @@ export const AddArea = ({onEnter,handleShow}:Props) =>{
                 </div>
             </C.Container>
             <C.Container>
-               
                 <input type="time" 
                 placeholder='Adicione a Hora' 
                 value={inputTime}
