@@ -100,7 +100,15 @@ export const App = () =>{
   }
   let toggleClass = showMenu ? ' show' : '';
 
+    list.sort((a,b) =>{
+     if(a.time > b.time){
+       return 1
+     } else{
+       return -1
+     }
+   })
 
+   
     return(
     <C.Main>
        <C.AddArea className={`add-menu${toggleClass}`}>
@@ -119,6 +127,7 @@ export const App = () =>{
         </C.Header>
         <h3>{contador} Tarefas a serem feitas</h3>
         <C.Area className='list'>
+         
             {list.map((item,index) =>(
             <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} handleDelete={handleDelete} />
             ))}

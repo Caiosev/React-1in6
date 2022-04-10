@@ -47,7 +47,10 @@ export const Container = styled.div(({done,bg}: ContainerProps) =>`
         input{
             width: 25px;
             height: 25px;
-           
+            
+            :hover{
+                cursor: pointer;
+            }
         
         }
         .name-check{

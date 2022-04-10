@@ -27,7 +27,7 @@ export const AddArea = ({onEnter,handleShow}:Props) =>{
     }
     return(
         <div className='add-inputs'>
-            <div onClick={handleShow}>
+            <div onClick={handleShow} className='close'>
             <i className='bx bx-x-circle'></i>
             </div>
             <C.Container>
