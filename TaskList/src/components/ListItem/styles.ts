@@ -7,35 +7,65 @@ type ContainerProps = {
     time:string;
     realtime:string;
     bg:string;
-
 }
 
 
 
-export const Container = styled.div(({done,time,realtime,bg}: ContainerProps) =>(`
+export const Container = styled.div(({done,bg}: ContainerProps) =>`
 
-        display: flex;
-        background-color:  #20212C;
-        padding: 10px;
-        border-radius: 10px;
-        margin-bottom: 10px;
-        align-items: center;
-        background-color:${bg};
+    
+    ::after{
+        content: '';
+        transform: ${done?'translateY(-35px)':'translateY(-15px)'};
+        height: 2px;
+        width: 100%;
+        transition: ease 1s;
+        background: #ccc;
+        display: block;
+        z-index:1;
+    }
 
-
+        #time{
+            color: ${bg};
+            margin-right:20px;
+        }
+          .item-content{
+            display: flex;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+            color: black;
+            
+        }
         label{
-           color: #ccc;
-           text-decoration: ${done?'line-through':'initial'}
+           color: black;
+           opacity:${done?'0.3':'1'};
 
         }
 
         input{
             width: 25px;
             height: 25px;
-            margin-right: 5px;
+            
+            :hover{
+                cursor: pointer;
+            }
         
+        }
+        .name-check{
+                width:90%;
+                display:flex;
+                align-items: center;
+        }
+        .image{
+            width:10%;
+            display:flex;
+            align-items: center;
+            cursor:pointer;
+            
         }
     `
 
 
-));
+);

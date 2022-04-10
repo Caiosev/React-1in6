@@ -21,9 +21,11 @@ export const App = () =>{
 
     });
     setList(newList)
+    contadorFunc();
     console.log(newList)
   }
 
+  
     const handleCheck = (id:number, done:boolean ) =>{
       let newList =[...list]
       for(let i in newList) {
@@ -32,6 +34,7 @@ export const App = () =>{
         }
     } 
     setList(newList)
+    contadorFunc()
     console.log(list)
   }
 
@@ -45,30 +48,96 @@ export const App = () =>{
   setInterval(UpdateTime,1000)
 
 
+  const handleDelete = (id:number) =>{
+    let newList = [...list]
+    
+    for(let i in newList){
+      if(newList[i].id == id){
+        console.log(newList)
+        newList.splice(parseInt(i),1)
+        console.log(newList)
+        setList(newList)
+        contadorFunc()
+      }
+    }
+  }
+
+  let data = new Date();
+  let dia = String(data.getDate()).padStart(2, '0');
+  let mes = String(data.getMonth() + 1).padStart(2, '0');
+  let ano = data.getFullYear();
+  let semana =''
+  if(data.getDay() == 0){
+    semana ='Dom'
+  } else if(data.getDay() == 1){
+    semana ='Seg'
+  } else if(data.getDay() == 2){
+    semana ='Ter'
+  } else if(data.getDay() == 3){
+    semana ='Qua'
+  }  else if(data.getDay() == 4){
+    semana ='Qui'
+  }  else if(data.getDay() == 5){
+    semana ='Sex'
+  } else if(data.getDay() == 6){
+    semana ='Sab'
+  } 
+  let contador =0
+
+  const contadorFunc = () =>{
+    for (let index = 0; index < list.length; index++) {
+      if(list[index].done == false){
+        contador++
+      } 
+    }
+  }
+  contadorFunc()
 
 
- 
+  const [showMenu, setShowMenu] = useState(false)
+  const handleShow = () =>{
+    setShowMenu(showMenu => !showMenu)
+  }
+  let toggleClass = showMenu ? ' show' : '';
+
+    list.sort((a,b) =>{
+     if(a.time > b.time){
+       return 1
+     } else{
+       return -1
+     }
+   })
+
+   
     return(
-    <C.Container>
+    <C.Main>
+       <C.AddArea className={`add-menu${toggleClass}`}>
+             <AddArea onEnter={handleAddTask} handleShow={handleShow} />
+       </C.AddArea>
+      <C.MainContainer>
         <C.Header>
+          <div className='date-time'>
             <h1>{stateTime}</h1>
-            <C.AddArea>
-             <AddArea onEnter={handleAddTask} />
-            </C.AddArea>
+            <h2>{`${dia}/${mes}/${ano} ${semana} `}</h2>
+          </div>
+          
+          <div className='add-btn' onClick={handleShow}>
+            <span>+</span>
+          </div>
         </C.Header>
-
-        <C.Area>
-            
+        <h3>{contador} Tarefas a serem feitas</h3>
+        <C.Area className='list'>
+         
             {list.map((item,index) =>(
-            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} />
+            <ListItem key={index} item={item} onChange={handleCheck} realtime={stateTime} handleDelete={handleDelete} />
             ))}
        
         </C.Area>
-
-        <C.Foooter>
+      </C.MainContainer>
+      <C.Foooter>
             <em><h2>DailyTasks</h2></em>
-        </C.Foooter>
-    </C.Container>
+      </C.Foooter>
+    </C.Main>
   )
   
 }

@@ -9,17 +9,26 @@ export const Container = styled.div`
     display: flex;
     align-items: center;
 
-    .image{
+
+    .input{
+        display: flex;
+       
+        .image{
         margin-right: 5px;
         cursor: pointer;
+        width: 10%;
+        }
     }
-
+   
     input{
         border: 0px;
         background: transparent;
         outline: 0;
         color: #fff;
-        font-size: 18px;
-        flex: 1;
+        font-size: 15px;
+        width: 90%;
+        text-align: left;
     }
+
+   
 `
