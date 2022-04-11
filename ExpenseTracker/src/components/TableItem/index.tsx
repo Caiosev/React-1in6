@@ -16,7 +16,11 @@ export const TableItem = ({item}:Props) =>{
                 </S.Category>
                 </S.TableColumn>
             <S.TableColumn>{item.title}</S.TableColumn>
-            <S.TableColumn>{`R$${item.value}`}</S.TableColumn>
+            <S.TableColumn>
+                <S.Value color={categories[item.category].expense ?'red':'green'}>
+                    {categories[item.category].expense ?`- R$${item.value}`:`+R$ ${item.value}`}
+                </S.Value>
+            </S.TableColumn>
         </S.Tableline>
     )
 }
