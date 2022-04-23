@@ -21,13 +21,24 @@ const App = () =>{
     getPhotos()
   },[])
 
+
+  const handleFormSubmit = () =>{
+    
+  }
+
   return(
     <S.Container>
       <S.Area>
         <S.Header>
           Galeria
         </S.Header>
-        {/* Upload*/}
+        <S.UploadForm method='POST' onSubmit={handleFormSubmit}>
+          <input type='file' name='image'></input>
+          <input type='submit' value='Enviar'></input>
+        </S.UploadForm>
+
+
+
         {loading &&
           <S.Loading>
             <div className='emoji'>✋</div>
