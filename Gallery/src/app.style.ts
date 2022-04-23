@@ -22,3 +22,13 @@ export const Header = styled.h1`
 
 
 `
+
+export const Loading = styled.div`
+    text-align: center;
+
+    .emoji{
+        font-size: 50px;
+        margin-bottom: 20px;
+    }
+
+`
