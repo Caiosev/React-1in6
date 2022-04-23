@@ -1,7 +1,6 @@
 import { Photo } from "../types/Photo"
 import {storage} from '../libs/firebase'
 import {ref,listAll,getDownloadURL,uploadBytes} from 'firebase/storage'
-import {v4 as createID} from 'uuid'
 
 
 export const getAll = async () =>{
@@ -19,17 +18,16 @@ export const getAll = async () =>{
 }
 
 
-export const insert = async (file:File) =>{
+export const insert = async (file:File,name:string) =>{
 
     if(['image/jpeg','image/jpg','image/png'].includes(file.type)){
 
-        let randomName = createID()
-        let newFile = ref(storage,`imgs/${randomName}`)
+        let newFile = ref(storage,`imgs/${name}`)
         let upload = await uploadBytes(newFile,file)
         let photourl = await getDownloadURL(upload.ref)
         
         return {
-            name: upload.ref.name,
+            name: name,
             url: photourl
         } as Photo
 

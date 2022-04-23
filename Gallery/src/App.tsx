@@ -29,10 +29,11 @@ const App = () =>{
 
     const formData = new FormData(e.currentTarget)
     const file = formData.get('image') as File
-    
+    const name = formData.get('name') as string
+
     if(file && file.size >0){
       setUploading(true)
-      let result = await P.insert(file)
+      let result = await P.insert(file,name)
       setUploading(false)
 
       if(result instanceof Error){
@@ -54,8 +55,8 @@ const App = () =>{
         </S.Header>
         <S.UploadForm method='POST' onSubmit={handleFormSubmit}>
           <input type='file' name='image'></input>
+          <input type='text'  name='name'></input>
           <input type='submit' value='Enviar'></input>
-
           {uploading && "Enviando...."}
         </S.UploadForm>
 
