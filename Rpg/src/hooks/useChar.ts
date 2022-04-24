@@ -42,7 +42,6 @@ export const useChar = () =>{
     }
 
     const canMove = (x:number,y:number) =>{
-        if(x<0 || y< 0) return false
         if(mapSpots[y] !== undefined && mapSpots[y][x] !== undefined){
             if(mapSpots[y][x] === 1) return true
         }
