@@ -45,7 +45,8 @@ export const FormStep1 = () =>{
                 <label>Seu nome Completo
                     <input type="text" 
                             autoFocus
-                            onChange={handleNameChange}/>
+                            onChange={handleNameChange}
+                            value={state.name}/>
                 </label>
                 <button onClick={handleNextStep}>Proximo</button>
             </S.Container>
